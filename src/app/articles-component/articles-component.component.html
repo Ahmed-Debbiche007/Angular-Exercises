@@ -1,0 +1,34 @@
+<h1>Les articles du jour</h1>
+<input type="number" name="price" [(ngModel)]="nbArticles"   placeholder={{listArticles.length}} min="0" >
+<div *ngFor="let item of createRange(nbArticles), let i= index">
+    <fieldset *ngIf="listArticles[i].categorie != 'Travail' ">
+        <legend><h2 [ngStyle]="{color: listArticles[i].categorie == 'Education' ? 'blue' : 'black'}">{{listArticles[i].titre}}</h2></legend>
+      <table>
+        <tr>
+          <td>
+            Auteur:
+          </td>
+          <td>
+            {{listArticles[i].auteur}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Date:
+          </td>
+          <td>
+            {{listArticles[i].date}}
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Contenu:
+          </td>
+          <td>
+            {{listArticles[i].contenu}}
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  
+</div>

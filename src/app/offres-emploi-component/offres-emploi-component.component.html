@@ -1,0 +1,17 @@
+<h1>Chercher:</h1>
+<input type="string" name="price" [(ngModel)]="nomEntreprise" >
+<table *ngFor="let emp of listEmploi">
+    <div *ngIf="emp.entreprise == nomEntreprise || nomEntreprise==null || nomEntreprise=='' ">
+        <tr>
+            <td>Product number {{ emp.reference }}</td>
+            <td>{{ emp.titre }}</td>
+            <td>{{ emp.entreprise }}</td>
+            <td>{{ emp.etat }}</td>
+            <td><button class="btn btn-primary" [disabled]="emp.etat==false">postuler</button></td>
+        </tr>
+    </div>
+</table>
+
+<p>Le nombre des offres d’emploi non clôturées.</p>
+<button class="btn btn-primary" (click)="bilan()">CHECK</button>
+{{resultat}}

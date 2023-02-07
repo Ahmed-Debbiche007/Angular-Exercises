@@ -1,17 +1,36 @@
-<h1>Chercher:</h1>
-<input type="string" name="price" [(ngModel)]="nomEntreprise" >
-<table *ngFor="let emp of listEmploi">
-    <div *ngIf="emp.entreprise == nomEntreprise || nomEntreprise==null || nomEntreprise=='' ">
-        <tr>
-            <td>Product number {{ emp.reference }}</td>
-            <td>{{ emp.titre }}</td>
-            <td>{{ emp.entreprise }}</td>
-            <td>{{ emp.etat }}</td>
-            <td><button class="btn btn-primary" [disabled]="emp.etat==false">postuler</button></td>
-        </tr>
-    </div>
-</table>
 
+
+<h2>offres d'emplois : </h2>
+<nav class="navbar navbar-light bg-light">
+  <div class="container-fluid">
+    <div class="d-flex" style="margin-bottom: 50px;">
+      <input type="string" name="price" [(ngModel)]="nomEntreprise">
+    </div>
+  </div>
+  <div class="row">
+
+
+    <div class="card" style="width: 18rem;" *ngFor="let emp of listEmploi ,let i=index">
+      <div class="card" style="width: 18rem;" *ngIf="emp.entreprise == nomEntreprise || nomEntreprise==null || nomEntreprise=='' ">
+        <div class="card-body">
+          <h5 class="card-title"> title : {{emp.titre}} </h5>
+          <h5 class="card-title"> reference : {{emp.reference}} </h5>
+          <h5 class="card-title"> entreprise : {{emp.entreprise}} </h5>
+          <h5 class="card-title"> etat : {{emp.etat}} </h5>
+          <div>
+            <button class="btn btn-primary" [disabled]="emp.etat==false">postuler</button>
+          </div>
+          
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</nav>
+<br>
 <p>Le nombre des offres d’emploi non clôturées.</p>
-<button class="btn btn-primary" (click)="bilan()">CHECK</button>
-{{resultat}}
+<div class="d-flex flex-row">
+<button href="#" class="btn btn-primary" (click)="bilan()">Bilan </button>
+<h1 class="p-3">{{resultat}}</h1>
+</div>

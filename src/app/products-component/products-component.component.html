@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="d-flex flex-wrap" style="margin-bottom: 50px;">
+    <input class="form-control me-2" type="number" placeholder="Search" [(ngModel)]="priceMax">
+
+  </div>
+</div>
+
+<div class="d-flex flex-row justify-content-start flex-wrap">
+  <ng-container *ngFor="let p of listProdcut ,let i=index">
+    <ng-container *ngIf="p.price >= priceMax || priceMax == null || priceMax == 0">
+      <div class="card p-1 m-1">
+        <img src="../../assets/images/p0dmj01q.jpg" style="width:150px" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{p.title}}</h5>
+          <p class="card-text"> quantity : {{p.quantity}}</p>
+          <p class="card-text"> price : {{p.price}}</p>
+          <p class="card-text"> likes : {{p.like}}</p>
+          <button class="btn btn-primary" (click)="buy(i)" [disabled]="p.quantity==0"
+            style="margin-right: 5px;">Buy</button>
+          <button class="btn btn-primary" (click)="like(i)">Like</button>
+        </div>
+      </div>
+    </ng-container>
+  </ng-container>
+</div>
